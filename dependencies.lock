@@ -1,0 +1,106 @@
+dependencies:
+  cmd_system:
+    dependencies: []
+    source:
+      path: /home/ole/esp/esp-idf/examples/system/console/advanced/components/cmd_system
+      type: local
+    version: '*'
+  espressif/esp_ot_cli_extension:
+    component_hash: 8d0f307f6c3a82996cd4fc57755edbbd3d8fd63b0eb9ceb7c8cb930c7f28bd96
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=5.0'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 2.0.1
+  espressif/iperf:
+    component_hash: 7ee222b87da6e69118814a1e04fbc6e0af6814cdd364f7f51cb58770d2478224
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=4.3'
+    source:
+      registry_url: https://components.espressif.com
+      type: service
+    version: 1.0.2
+  espressif/iperf-cmd:
+    component_hash: 112e912c230db6e8863194854950a83d8ed042101d9c57ebdfab8a505c8d8c21
+    dependencies:
+    - name: espressif/iperf
+      registry_url: https://components.espressif.com
+      require: private
+      version: =1.0.2
+    - name: idf
+      require: private
+      version: '>=4.3'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 1.0.2
+  espressif/led_strip:
+    component_hash: 28c6509a727ef74925b372ed404772aeedf11cce10b78c3f69b3c66799095e2d
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=4.4'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 2.5.5
+  espressif/mdns:
+    component_hash: 7c0fa01a1cd0e72a87ec1928c3b661c0a3a9034a6d3a69dcf4850db8c6f272db
+    dependencies:
+    - name: idf
+      require: private
+      version: '>=5.0'
+    source:
+      registry_url: https://components.espressif.com/
+      type: service
+    version: 1.10.1
+  idf:
+    source:
+      type: idf
+    version: 5.5.3
+  ot_examples_br:
+    dependencies: []
+    source:
+      path: /home/ole/esp/esp-idf/examples/openthread/ot_common_components/ot_examples_br
+      type: local
+    version: '*'
+  ot_examples_common:
+    dependencies:
+    - name: espressif/iperf-cmd
+      version: ^1.0.0
+    - name: cmd_system
+      path: ${IDF_PATH}/examples/system/console/advanced/components/cmd_system
+    source:
+      path: /home/ole/esp/esp-idf/examples/openthread/ot_common_components/ot_examples_common
+      type: local
+    version: '*'
+  ot_led:
+    dependencies:
+    - name: espressif/led_strip
+      version: ^2.4.1
+    source:
+      path: /home/ole/esp/esp-idf/examples/openthread/ot_common_components/ot_led
+      type: local
+    version: '*'
+  protocol_examples_common:
+    dependencies: []
+    source:
+      path: /home/ole/esp/esp-idf/examples/common_components/protocol_examples_common
+      type: local
+    version: '*'
+direct_dependencies:
+- espressif/esp_ot_cli_extension
+- espressif/mdns
+- idf
+- ot_examples_br
+- ot_examples_common
+- ot_led
+- protocol_examples_common
+manifest_hash: b11af154969b0255eb836bcb47c54405c94c58b63c83ae8ef1f4f789eb33436d
+target: esp32
+version: 2.0.0
