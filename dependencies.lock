@@ -5,6 +5,16 @@ dependencies:
       path: /home/ole/esp/esp-idf/examples/system/console/advanced/components/cmd_system
       type: local
     version: '*'
+  esp_ot_br_server:
+    dependencies:
+    - name: espressif/cjson
+      rules:
+      - if: idf_version >= 6.0
+      version: ^1.7.19
+    source:
+      path: /home/ole/codm/thread-br/component/esp_ot_br_server
+      type: local
+    version: '*'
   espressif/esp_ot_cli_extension:
     component_hash: 8d0f307f6c3a82996cd4fc57755edbbd3d8fd63b0eb9ceb7c8cb930c7f28bd96
     dependencies:
@@ -94,6 +104,7 @@ dependencies:
       type: local
     version: '*'
 direct_dependencies:
+- esp_ot_br_server
 - espressif/esp_ot_cli_extension
 - espressif/mdns
 - idf
@@ -101,6 +112,6 @@ direct_dependencies:
 - ot_examples_common
 - ot_led
 - protocol_examples_common
-manifest_hash: b11af154969b0255eb836bcb47c54405c94c58b63c83ae8ef1f4f789eb33436d
+manifest_hash: 7229133b3181f59ded91807d40aee98336d0301fc640cc7b431d427004448f55
 target: esp32
 version: 2.0.0

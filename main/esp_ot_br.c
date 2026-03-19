@@ -37,6 +37,9 @@
 #include "nvs_flash.h"
 #include "ot_examples_br.h"
 #include "ot_examples_common.h"
+// ---
+#include "esp_br_web.h"
+#include "esp_spiffs.h"
 
 #if CONFIG_OPENTHREAD_STATE_INDICATOR_ENABLE
 #include "ot_led_strip.h"
@@ -128,6 +131,12 @@ void app_main(void)
             .port_config = ESP_OPENTHREAD_DEFAULT_PORT_CONFIG(),
         },
     };
+
+    // Webserver
+    esp_vfs_spiffs_conf_t web_server_conf = {
+        .base_path = "/spiffs", .partition_label = "web_storage", .max_files = 10, .format_if_mount_failed = false};
+    ESP_ERROR_CHECK(esp_vfs_spiffs_register(&web_server_conf));
+    esp_br_web_start("/spiffs");
 
     ESP_ERROR_CHECK(esp_openthread_start(&config));
 #if CONFIG_OPENTHREAD_CLI_ESP_EXTENSION

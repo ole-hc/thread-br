@@ -1,3 +1,5 @@
+CONFIG_OPENTHREAD_BR_START_WEB=y
+
 #
 # Partition Table
 #
